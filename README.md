@@ -1,4 +1,3 @@
-# backend
 # 🏥 AI4-healthcare  
 # 🏥 Skin AI Care  
 ### 🚀 AI-Powered Rural Skin Diagnosis & Decision Support System
@@ -20,41 +19,51 @@ Skin AI Care is an intelligent web application designed for **rural healthcare w
 ---
 
 ## 🎯 Features
-
-- 📸 **Image-Based Diagnosis**
-- 🧠 **AI Prediction (CNN Model)**
-- 📊 **Confidence Score**
-- 🚦 **Severity Detection (Low / Medium / High)**
-- 🚑 **Smart Referral System**
-- 📖 **Simple Explanation**
-- 🛡️ **Preventive Care Suggestions**
-- 🌍 **Multi-Language Support (EN / हिंदी / ਪੰਜਾਬੀ)**
-- 💾 **Save History (Database)**
-- 📱 **Mobile-Friendly UI**
+- 📸 Image-Based Diagnosis  
+- 🧠 AI Prediction (CNN Model)  
+- 📊 Confidence Score  
+- 🚦 Severity Detection (Low / Medium / High)  
+- 🚑 Smart Referral System  
+- 📖 Simple Explanation  
+- 🛡️ Preventive Care Suggestions  
+- 🌍 Multi-Language Support (EN / हिंदी / ਪੰਜਾਬੀ)  
+- 💾 Save History (Database)  
+- 📱 Mobile-Friendly UI  
 
 ---
+
 ## 🖥️ Workflow
----
-    mermaid
+
+```mermaid
 graph TD
 A[Upload Image] --> B[Preprocessing]
 B --> C[AI Model Prediction]
 C --> D[Result + Severity]
 D --> E[Recommendation]
 E --> F[Save to Database]
+```
 
-🧰 Tech Stack
-⚙️ Backend
-🐍 Python
-⚡ FastAPI
-🧠 TensorFlow / PyTorch
-🎨 Frontend
-HTML, CSS, JavaScript
-Bootstrap, jQuery
-🗄️ Database
-SQLite / PostgreSQL
+---
 
-📂 Project Structure
+## 🧰 Tech Stack
+
+### ⚙️ Backend
+- 🐍 Python  
+- ⚡ FastAPI  
+- 🧠 TensorFlow / PyTorch  
+
+### 🎨 Frontend
+- HTML, CSS, JavaScript  
+- Bootstrap, jQuery  
+
+### 🗄️ Database
+- SQLite / PostgreSQL  
+
+---
+
+## 📂 Project Structure
+
+```
 backend/
  ├── app/
  │   ├── api/
@@ -66,7 +75,13 @@ backend/
  ├── model/
  ├── uploads/
  └── main.py
-🚀 How to Run
+```
+
+---
+
+## 🚀 How to Run
+
+```bash
 # Clone repo
 git clone https://github.com/your-repo/skin-ai-care.git
 
@@ -75,26 +90,37 @@ pip install -r requirements.txt
 
 # Run server
 uvicorn app.main:app --reload
-📸 UI Preview
+```
 
-Clean, simple, and designed for non-technical users
+---
 
-📤 Upload Image
-📊 Get Results
-🚑 Take Action
-🌍 Impact
-👨‍⚕️ Helps rural health workers
-⏱️ Reduces diagnosis delay
-💰 Low-cost healthcare support
-❤️ Saves lives
-🏆 Hackathon Edge
+## 📸 UI Preview
+Clean, simple, and designed for non-technical users  
 
-✨ “AI + Accessibility + Real-world usability”
+- 📤 Upload Image  
+- 📊 Get Results  
+- 🚑 Take Action  
 
-Not just prediction
-Complete decision support system
-Built for real deployment
+---
 
+## 🌍 Impact
+- 👨‍⚕️ Helps rural health workers  
+- ⏱️ Reduces diagnosis delay  
+- 💰 Low-cost healthcare support  
+- ❤️ Saves lives  
+
+---
+
+## 🏆 Hackathon Edge
+✨ “AI + Accessibility + Real-world usability”  
+
+- Not just prediction  
+- Complete decision support system  
+- Built for real deployment  
+
+---
+
+## 🌐 Live Demo
 
 <p align="center"> 
   <a href="https://your-live-link.com" target="_blank">
