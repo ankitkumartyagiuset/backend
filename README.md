@@ -31,11 +31,17 @@ Skin AI Care is an intelligent web application designed for **rural healthcare w
 - 💾 **Save History (Database)**
 - 📱 **Mobile-Friendly UI**
 
----
+----
 
+<p align="center">
+  <a href="https://your-live-link.com" target="_blank">
+    <img src="https://img.shields.io/badge/🌐%20Open%20App-Live%20Now-0ea5e9?style=for-the-badge&logo=google-chrome&logoColor=white" />
+  </a>
+</p>
 ## 🖥️ Workflow
 
-```mermaid
+mermaid
+
 graph TD
 A[Upload Image] --> B[Preprocessing]
 B --> C[AI Model Prediction]
@@ -43,10 +49,3 @@ C --> D[Result + Severity]
 D --> E[Recommendation]
 E --> F[Save to Database]
 
-
-
-<p align="center">
-  <a href="https://your-live-link.com" target="_blank">
-    <img src="https://img.shields.io/badge/🌐%20Open%20App-Live%20Now-0ea5e9?style=for-the-badge&logo=google-chrome&logoColor=white" />
-  </a>
-</p>
