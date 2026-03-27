@@ -42,3 +42,11 @@ B --> C[AI Model Prediction]
 C --> D[Result + Severity]
 D --> E[Recommendation]
 E --> F[Save to Database]
+
+
+
+<p align="center">
+  <a href="https://your-live-link.com" target="_blank">
+    <img src="https://img.shields.io/badge/🌐%20Open%20App-Live%20Now-0ea5e9?style=for-the-badge&logo=google-chrome&logoColor=white" />
+  </a>
+</p>
