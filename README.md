@@ -33,10 +33,9 @@ Skin AI Care is an intelligent web application designed for **rural healthcare w
 - 📱 **Mobile-Friendly UI**
 
 ---
-
 ## 🖥️ Workflow
-
-```mermaid
+---
+    mermaid
 graph TD
 A[Upload Image] --> B[Preprocessing]
 B --> C[AI Model Prediction]
@@ -54,6 +53,7 @@ HTML, CSS, JavaScript
 Bootstrap, jQuery
 🗄️ Database
 SQLite / PostgreSQL
+
 📂 Project Structure
 backend/
  ├── app/
