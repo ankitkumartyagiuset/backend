@@ -1,35 +1,78 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import router as api_router
-from app.core.database import engine, Base
+import shutil
 import os
-from app.core.config import settings
-from fastapi.staticfiles import StaticFiles
+import random
 
-# Create db tables
-Base.metadata.create_all(bind=engine)
+app = FastAPI()
 
-# Create structural directories if not exists
-os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
-os.makedirs("model", exist_ok=True)
-
-app = FastAPI(title="AI-Powered Rural Skin Diagnosis & Referral System API")
+# ✅ CORS (connect frontend)
+origins = [
+    "https://ai-4-healthcare.vercel.app"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix="/api")
+# ✅ Create uploads folder
+UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-# Serve the Frontend seamlessly from root
-frontend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend"))
-if os.path.exists(frontend_path):
-    app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend") # Mount frontend HTML
-else:
-    @app.get("/")
-    def root():
-        return {"message": "Skin AI Assistant API is running (Frontend statically detached)"}
+
+# 🧠 Dummy AI Prediction Function (replace later with model)
+def predict_disease(image_path):
+    conditions = [
+        ("Benign Skin Lesion", "Low", "Safe to treat locally"),
+        ("Fungal Infection", "Medium", "Use antifungal cream"),
+        ("Skin Cancer Risk", "High", "Refer to specialist immediately")
+    ]
+
+    condition, severity, recommendation = random.choice(conditions)
+
+    confidence = round(random.uniform(85, 98), 2)
+
+    explanation = "Detected patterns similar to common skin conditions."
+
+    return {
+        "condition": condition,
+        "confidence": f"{confidence}%",
+        "severity": severity,
+        "recommendation": recommendation,
+        "explanation": explanation
+    }
+
+
+# 📸 API: Upload & Predict
+@app.post("/predict")
+async def predict(file: UploadFile = File(...)):
+    file_path = os.path.join(UPLOAD_DIR, file.filename)
+
+    # Save file
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    # AI Prediction
+    result = predict_disease(file_path)
+
+    return {
+        "status": "success",
+        "data": result,
+        "image": file.filename
+    }
+
+
+# 🏠 Test Route
+@app.get("/")
+def home():
+    return {"message": "Skin AI Care Backend Running 🚀"}
+
+
+# 🚀 Run locally
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
